@@ -8,7 +8,7 @@
 #include <iostream>
 
 class Loader{
-    sf::Texture fieldTextures[5], enemyTextures[9], buttonTextures[2], particleTexture;
+    sf::Texture fieldTextures[5], enemyTextures[8], buttonTextures[2], particleTexture;
     std::vector<std::string> MAPOFTHEGAME;
     std::vector<std::string> Waves;
     std::vector<directions> Path;

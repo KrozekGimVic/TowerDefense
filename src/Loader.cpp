@@ -1,24 +1,19 @@
 #include "Loader.hpp"
 
 void Loader::loadTextures(){
-    fieldTextures[0].loadFromFile("images/grass.jpg");
-    fieldTextures[1].loadFromFile("images/path.jpg");
-    fieldTextures[2].loadFromFile("images/tower0.gif");
-    fieldTextures[3].loadFromFile("images/tower1.gif");
-    fieldTextures[4].loadFromFile("images/tower2.gif");
+    fieldTextures[0].loadFromFile("data/images/grass.jpg");
+    fieldTextures[1].loadFromFile("data/images/path.jpg");
+    fieldTextures[2].loadFromFile("data/images/tower0.gif");
+    fieldTextures[3].loadFromFile("data/images/tower1.gif");
+    fieldTextures[4].loadFromFile("data/images/tower2.gif");
 
-    enemyTextures[0].loadFromFile("images/enemy0.gif");
-    enemyTextures[1].loadFromFile("images/enemy1.gif");
-    enemyTextures[2].loadFromFile("images/enemy2.gif");
-    enemyTextures[3].loadFromFile("images/enemy3.gif");
-    enemyTextures[4].loadFromFile("images/enemy4.gif");
-    enemyTextures[5].loadFromFile("images/enemy5.gif");
-    enemyTextures[6].loadFromFile("images/enemy6.gif");
-    enemyTextures[7].loadFromFile("images/enemy7.gif");
+    for(int i = 0; i<int(sizeof(enemyTextures)/sizeof(sf::Texture)); ++i){
+        enemyTextures[i].loadFromFile("data/images/enemy"+std::to_string(i)+".gif");
+    }
 
-    buttonTextures[0].loadFromFile("images/buttonstart.gif");
-    buttonTextures[1].loadFromFile("images/buttonpause.gif");
-    particleTexture.loadFromFile("images/particle.gif");
+    buttonTextures[0].loadFromFile("data/images/buttonstart.gif");
+    buttonTextures[1].loadFromFile("data/images/buttonpause.gif");
+    particleTexture.loadFromFile("data/images/particle.gif");
 }
 void Loader::loadMaps(){
     std::ifstream mapFile;
