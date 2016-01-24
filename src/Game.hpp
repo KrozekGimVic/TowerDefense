@@ -1,13 +1,13 @@
-#ifndef Game_hpp
-#define Game_hpp
+#ifndef GAME_HPP
+#define GAME_HPP
 
 #include "Enums.hpp"
 #include "globals.hpp"
 #include "Button.hpp"
-#include "Other.hpp"
 #include "GameMap.hpp"
 #include "Enemy.hpp"
 #include "EnemySpawner.hpp"
+#include "Tower.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -34,6 +34,7 @@ class Game {
     void update();
     void handleMouseClick();
     void addDrawable(sf::Sprite* sprite);
+    sf::Text createTextField(int posx, int posy, std::string strText, int textSize);
 public:
     Game();
     void run();

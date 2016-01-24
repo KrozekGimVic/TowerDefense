@@ -1,5 +1,5 @@
-#ifndef Field_hpp
-#define Field_hpp
+#ifndef FIELD_HPP
+#define FIELD_HPP
 
 #include "Enums.hpp"
 #include "globals.hpp"

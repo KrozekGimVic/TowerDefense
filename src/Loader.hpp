@@ -1,5 +1,5 @@
-#ifndef Loader_hpp
-#define Loader_hpp
+#ifndef LOADER_HPP
+#define LOADER_HPP
 
 #include "Enums.hpp"
 #include <SFML/Graphics.hpp>

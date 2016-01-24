@@ -34,3 +34,14 @@ void Tower::shoot(std::vector<Enemy>& enemies, std::vector<Particle>& particles)
         step++;
     }
 }
+
+bool placeTower(int& Money, Field *field, std::vector<Tower>& Towers, const fieldClass towerID){
+    int price = towerPrices[static_cast<int>(towerID)];
+    if(Money >= price && field->getClass() == GRASS){
+        Money -= price;
+        Tower tower(field, towerID);
+        Towers.push_back(tower);
+        return true;
+    }
+    return false;
+}

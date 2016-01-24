@@ -1,5 +1,5 @@
-#ifndef GameMap_hpp
-#define GameMap_hpp
+#ifndef GAMEMAP_HPP
+#define GAMEMAP_HPP
 
 #include "globals.hpp"
 #include "Enums.hpp"

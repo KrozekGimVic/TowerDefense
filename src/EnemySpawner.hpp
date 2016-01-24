@@ -1,5 +1,5 @@
-#ifndef EnemySpawner_hpp
-#define EnemySpawner_hpp
+#ifndef ENEMYSPAWNER_HPP
+#define ENEMYSPAWNER_HPP
 
 #include "globals.hpp"
 #include "Enemy.hpp"

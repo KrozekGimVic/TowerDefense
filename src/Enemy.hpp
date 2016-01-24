@@ -1,5 +1,5 @@
-#ifndef Enemy_hpp
-#define Enemy_hpp
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
 #include "Enums.hpp"
 #include "globals.hpp"

@@ -124,3 +124,11 @@ void Game::handleMouseClick(){
 void Game::addDrawable(sf::Sprite* sprite){
     drawable.push_back(sprite);
 }
+
+sf::Text Game::createTextField(int posx, int posy, std::string strText, int textSize){
+    sf::Text textField(strText, *(loader.getFont()));
+    textField.setPosition(posx, posy);
+    textField.setColor(sf::Color(188, 175, 105));
+    textField.setCharacterSize(textSize);
+    return textField;
+}

@@ -1,5 +1,5 @@
-#ifndef Button_hpp
-#define Button_hpp
+#ifndef BUTTON_HPP
+#define BUTTON_HPP
 
 #include "globals.hpp"
 #include "Enums.hpp"
@@ -15,5 +15,7 @@ public:
     int getID(){ return id; }
     bool isClicked(const sf::Vector2i& click);
 };
+
+std::vector<Button> createTowerButtons();
 
 #endif

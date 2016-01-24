@@ -1,5 +1,5 @@
-#ifndef globals_hpp
-#define globals_hpp
+#ifndef GLOBALS_HPP
+#define GLOBALS_HPP
 
 #include "Loader.hpp"
 

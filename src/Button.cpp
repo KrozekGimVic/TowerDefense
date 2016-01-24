@@ -21,3 +21,11 @@ bool Button::isClicked(const sf::Vector2i& click){
     int x = click.x - pos.x, y = click.y - pos.y;
     return 0 < x && x < width && 0 < y && y < height;
 }
+
+std::vector<Button> createTowerButtons(){
+    std::vector<Button> towerButtons;
+    towerButtons.push_back( Button(605, 100, BASIC_TOWER) );
+    towerButtons.push_back( Button(605, 200, CIRCLE_TOWER));
+    towerButtons.push_back( Button(605, 300, POWER_TOWER));
+    return towerButtons;
+}

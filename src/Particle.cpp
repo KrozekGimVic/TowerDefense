@@ -30,3 +30,12 @@ bool Particle::alive(){
     }
     return true;
 }
+
+void updateParticles(std::vector<Particle>& particles){
+    auto i=particles.begin();
+    while(i!=particles.end()){
+        if(!i->alive()){
+            i = particles.erase(i);
+        }else{ ++i; }
+    }
+}

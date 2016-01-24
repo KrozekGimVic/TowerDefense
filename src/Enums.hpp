@@ -1,5 +1,5 @@
-#ifndef Enums_hpp
-#define Enums_hpp
+#ifndef ENUMS_HPP
+#define ENUMS_HPP
 
 enum fieldClass{
     GRASS=0, PATH=1, BASIC_TOWER = 2, CIRCLE_TOWER = 3, POWER_TOWER = 4
