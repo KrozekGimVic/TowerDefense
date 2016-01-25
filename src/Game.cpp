@@ -10,6 +10,9 @@ Game::Game(){
 
     window.create(sf::VideoMode(sizeX, sizeY), "Tower Defense");
     window.setFramerateLimit(30);
+    window.setMouseCursorVisible(false);
+    lastClickedTower.setPosition(605, sizeY);   // out of screen
+    lastClickedTower.setTexture(*loader.getMouseTextures(2));
 
     running = false, waveRunning = false;
     Money = 200, Lives = 20;
@@ -44,8 +47,8 @@ void Game::run(){
                     if(event.key.code == sf::Keyboard::F){
                         if(fastForward) window.setFramerateLimit(30);
                         else window.setFramerateLimit(60);
-                        fastForward = !fastForward;
                         std::cout << "Fast Forward: " << std::boolalpha << !fastForward << std::endl;
+                        fastForward = !fastForward;
                     }
                     if(!(event.key.code == sf::Keyboard::Escape)) break;
                 case sf::Event::Closed:
@@ -77,6 +80,7 @@ void Game::run(){
                             "$\nWave: "+std::to_string(Spawner.getWave()+1)+"/"+std::to_string(Spawner.getMaxWaves())
                         );
 
+        handleMouseCursor();
         update();
     }
 }
@@ -95,9 +99,22 @@ void Game::update(){
     }
     window.draw(statusText);
     window.draw(towerDesc);
+    window.draw(lastClickedTower);
+    window.draw(mouseCursor);
     window.display();
 }
-
+void Game::handleMouseCursor(){
+    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+    if(Map.inMap(mousePos)){
+        int *pos = Map.getField(mousePos);
+        float fieldWidth = static_cast<float>(sizeY) / loader.getMapSize();
+        mouseCursor.setPosition(fieldWidth*pos[0], fieldWidth*pos[1]);
+        mouseCursor.setTexture(*loader.getMouseTextures(1));
+    }else{
+        mouseCursor.setPosition(static_cast<sf::Vector2f>(mousePos));
+        mouseCursor.setTexture(*loader.getMouseTextures(0));
+    }
+}
 void Game::handleMouseClick(){
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     if(Map.inMap(mousePos)){
@@ -106,6 +123,7 @@ void Game::handleMouseClick(){
             Field *field = Map.get(pos[0], pos[1]);
             placeTower(Money, field, Towers, static_cast<fieldClass>(lastClickedID));
             lastClickedID = 0;
+            lastClickedTower.setPosition(lastClickedTower.getPosition().x, sizeY);
         }
     }else if(startButton.isClicked(mousePos)){
         if(!Spawner.isRunning()){       // && enemies.size() == 0){
@@ -117,6 +135,7 @@ void Game::handleMouseClick(){
     }for(Button& button : towerButtons){
         if(button.isClicked(mousePos)){
             lastClickedID = button.getID();
+            lastClickedTower.setPosition(lastClickedTower.getPosition().x, 100*(button.getID()-1));
         }
     }
 }

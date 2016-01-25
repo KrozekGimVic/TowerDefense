@@ -6,6 +6,6 @@
 extern const int sizeX;
 extern const int sizeY;
 extern Loader loader;
-extern const int towerPrices[5];
+extern const int towerPrices[6];
 
 #endif

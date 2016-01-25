@@ -8,7 +8,7 @@
 #include <iostream>
 
 class Loader{
-    sf::Texture fieldTextures[5], enemyTextures[8], buttonTextures[2], particleTexture;
+    sf::Texture fieldTextures[6], enemyTextures[8], buttonTextures[2], particleTextures[4], mouseTextures[3];
     std::vector<std::string> MAPOFTHEGAME;
     std::vector<std::string> Waves;
     std::vector<directions> Path;
@@ -49,8 +49,10 @@ public:
         return &(enemyTextures[enemyID]);
     }sf::Texture* getButtonTexture(int buttonID){
         return &(buttonTextures[buttonID]);
-    }sf::Texture* getParticleTexture(){
-        return &particleTexture;
+    }sf::Texture* getParticleTextures(int particleID){
+        return &(particleTextures[particleID]);
+    }sf::Texture* getMouseTextures(int id){
+        return &(mouseTextures[id]);
     }
 };
 

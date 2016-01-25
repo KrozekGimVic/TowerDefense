@@ -6,14 +6,19 @@ void Loader::loadTextures(){
     fieldTextures[2].loadFromFile("data/images/tower0.gif");
     fieldTextures[3].loadFromFile("data/images/tower1.gif");
     fieldTextures[4].loadFromFile("data/images/tower2.gif");
+    fieldTextures[5].loadFromFile("data/images/tower3.gif");
 
     for(int i = 0; i<int(sizeof(enemyTextures)/sizeof(sf::Texture)); ++i){
         enemyTextures[i].loadFromFile("data/images/enemy"+std::to_string(i)+".gif");
     }
-
+    for(int i = 0; i<int(sizeof(particleTextures)/sizeof(sf::Texture)); ++i){
+        particleTextures[i].loadFromFile("data/images/particle"+std::to_string(i)+".gif");
+    }
     buttonTextures[0].loadFromFile("data/images/buttonstart.gif");
     buttonTextures[1].loadFromFile("data/images/buttonpause.gif");
-    particleTexture.loadFromFile("data/images/particle.gif");
+    mouseTextures[0].loadFromFile("data/images/mouse0.gif");
+    mouseTextures[1].loadFromFile("data/images/mouse1.gif");
+    mouseTextures[2].loadFromFile("data/images/mouse2.gif");
 }
 void Loader::loadMaps(){
     std::ifstream mapFile;

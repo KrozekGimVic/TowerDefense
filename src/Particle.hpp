@@ -11,9 +11,9 @@
 class Particle: public sf::Sprite{
     Enemy* target;
     int lasts, speed, strength, fieldSize;
-    bool hitTarget;
+    bool hitTarget, ice;
 public:
-    Particle(int posx, int posy, Enemy* target_, int strength_, int fieldSize_);
+    Particle(int posx, int posy, Enemy* target_, int strength_, int fieldSize_, int id, bool ice_);
     bool alive();
 };
 

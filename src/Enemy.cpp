@@ -6,11 +6,15 @@ Enemy::Enemy(sf::Vector2f pos, int id, float fieldWidth):sf::Sprite(){
     setPosition(pos);
     setOrigin(10, 10);      // sirina enemy-a 20px
     setTexture(*loader.getEnemyTexture(id));
-    dead = false;
+    dead = false, freezed = false;
     value = lives = id+1;     // zaenkrat tolk kot ma id tolk ma zivljenja
     location = counter = 0;
     speed = 2;
     steps = fieldWidth/speed;
+}
+void Enemy::freeze(){
+    freezeCounter = 0;
+    freezed = true;
 }
 void Enemy::hurt(int amount){
     lives -= amount;
@@ -23,6 +27,10 @@ void Enemy::hurt(int amount){
 bool Enemy::go(std::vector<directions>& path){
     if(dead || location >= path.size()){
         return false;
+    }if(freezed){
+        if(freezeCounter >= steps*2.5) freezed = false;
+        freezeCounter++;
+        return true;
     }
     switch(path[location]){
         case RIGHT:

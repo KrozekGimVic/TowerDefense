@@ -27,5 +27,6 @@ std::vector<Button> createTowerButtons(){
     towerButtons.push_back( Button(605, 100, BASIC_TOWER) );
     towerButtons.push_back( Button(605, 200, CIRCLE_TOWER));
     towerButtons.push_back( Button(605, 300, POWER_TOWER));
+    towerButtons.push_back( Button(605, 400, ICE_TOWER));
     return towerButtons;
 }

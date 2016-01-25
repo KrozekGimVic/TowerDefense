@@ -16,6 +16,7 @@ class Game {
     sf::RenderWindow window;
     bool fastForward =  false;
     std::vector<sf::Sprite*> drawable;
+    sf::Sprite mouseCursor, lastClickedTower;
 
     int lastClickedID;
     std::vector<Button> towerButtons;
@@ -32,6 +33,7 @@ class Game {
     std::vector<Particle> particles;
 
     void update();
+    void handleMouseCursor();
     void handleMouseClick();
     void addDrawable(sf::Sprite* sprite);
     sf::Text createTextField(int posx, int posy, std::string strText, int textSize);
